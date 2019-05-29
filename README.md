@@ -1,3 +1,7 @@
+# video-viewer
+
+simple video viewer React app with youtube API
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
