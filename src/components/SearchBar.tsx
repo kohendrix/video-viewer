@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Segment, Form, Input, Label, FormField, Container } from 'semantic-ui-react';
+import React from 'react';
+import { Segment, Form, Input, FormField, Container } from 'semantic-ui-react';
 
 // const Container = styled.div`
 //   margin: 20px;
 // `;
 
-export default class SearchBar extends React.Component {
+interface Props {
+  onTermSubmit: (term: string) => void;
+}
+export default class SearchBar extends React.Component<Props> {
   state = { term: '' };
 
   onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    console.log(this.state.term);
+    this.props.onTermSubmit(this.state.term);
   };
 
   render() {
@@ -24,7 +26,7 @@ export default class SearchBar extends React.Component {
                 <label>Video Search</label>
                 <Input
                   name="search"
-                  placeholder="title..."
+                  placeholder="keywords..."
                   type="text"
                   value={this.state.term}
                   onChange={e => this.setState({ term: e.target.value })}
