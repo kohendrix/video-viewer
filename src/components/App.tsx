@@ -16,6 +16,11 @@ const Container = styled.div`
 export default class App extends React.Component {
   state = { videos: [], selectedVideo: null, showNoResult: false };
 
+  componentDidMount() {
+    // default
+    this.onTermSubmit('surfing');
+  }
+
   onTermSubmit = async (term: string) => {
     try {
       if (!term) return;
